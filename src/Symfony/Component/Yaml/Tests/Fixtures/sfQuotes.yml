@@ -31,3 +31,16 @@ php: |
         'foo \' bar: ' => 'bar',
       ),
     )
+---
+test: Quotes and backslashes or newlines can occur together in the same string
+brief: >
+    Quotes and backslashes or newlines can occur together in the same string
+yaml: |
+    - "This has a \\ and a \"."
+    - "This has a \" and a newline at the end\n"
+php: |
+    array(
+      'This has a \ and a ".',
+      'This has a " and a newline at the end
+    '
+    )
