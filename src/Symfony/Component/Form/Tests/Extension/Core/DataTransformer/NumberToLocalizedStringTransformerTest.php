@@ -32,7 +32,7 @@ class NumberToLocalizedStringTransformerTest extends LocalizedTestCase
         $this->assertEquals('12345,912', $transformer->transform(12345.9123));
     }
 
-    public function testTransform_empty()
+    public function testTransformEmpty()
     {
         $transformer = new NumberToLocalizedStringTransformer();
 
@@ -75,7 +75,7 @@ class NumberToLocalizedStringTransformerTest extends LocalizedTestCase
         $this->assertEquals(12345.912, $transformer->reverseTransform('12345,912'));
     }
 
-    public function testReverseTransform_empty()
+    public function testReverseTransformEmpty()
     {
         $transformer = new NumberToLocalizedStringTransformer();
 
@@ -96,8 +96,8 @@ class NumberToLocalizedStringTransformerTest extends LocalizedTestCase
 
     public function testDecimalSeparatorMayBeDotIfGroupingSeparatorIsNotDot()
     {
-        if ($this->isLowerThanIcuVersion('4.5')) {
-            $this->markTestSkipped('Please upgrade ICU version to 4.5+');
+        if ($this->isLowerThanIcuVersion('4.7')) {
+            $this->markTestSkipped('Please upgrade ICU version to 4.7+');
         }
 
         \Locale::setDefault('fr');
@@ -117,8 +117,8 @@ class NumberToLocalizedStringTransformerTest extends LocalizedTestCase
      */
     public function testDecimalSeparatorMayNotBeDotIfGroupingSeparatorIsDot()
     {
-        if ($this->isLowerThanIcuVersion('4.5')) {
-            $this->markTestSkipped('Please upgrade ICU version to 4.5+');
+        if ($this->isLowerThanIcuVersion('4.7')) {
+            $this->markTestSkipped('Please upgrade ICU version to 4.7+');
         }
 
         $transformer = new NumberToLocalizedStringTransformer(null, true);
@@ -129,10 +129,10 @@ class NumberToLocalizedStringTransformerTest extends LocalizedTestCase
     /**
      * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
      */
-    public function testDecimalSeparatorMayNotBeDotIfGroupingSeparatorIsDot_noGroupSep()
+    public function testDecimalSeparatorMayNotBeDotIfGroupingSeparatorIsDotWithNoGroupSep()
     {
-        if ($this->isLowerThanIcuVersion('4.5')) {
-            $this->markTestSkipped('Please upgrade ICU version to 4.5+');
+        if ($this->isLowerThanIcuVersion('4.7')) {
+            $this->markTestSkipped('Please upgrade ICU version to 4.7+');
         }
 
         $transformer = new NumberToLocalizedStringTransformer(null, true);
@@ -151,8 +151,8 @@ class NumberToLocalizedStringTransformerTest extends LocalizedTestCase
 
     public function testDecimalSeparatorMayBeCommaIfGroupingSeparatorIsNotComma()
     {
-        if ($this->isLowerThanIcuVersion('4.5')) {
-            $this->markTestSkipped('Please upgrade ICU version to 4.5+');
+        if ($this->isLowerThanIcuVersion('4.7')) {
+            $this->markTestSkipped('Please upgrade ICU version to 4.7+');
         }
 
         \Locale::setDefault('ak');
@@ -172,8 +172,8 @@ class NumberToLocalizedStringTransformerTest extends LocalizedTestCase
      */
     public function testDecimalSeparatorMayNotBeCommaIfGroupingSeparatorIsComma()
     {
-        if ($this->isLowerThanIcuVersion('4.5')) {
-            $this->markTestSkipped('Please upgrade ICU version to 4.5+');
+        if ($this->isLowerThanIcuVersion('4.7')) {
+            $this->markTestSkipped('Please upgrade ICU version to 4.7+');
         }
 
         \Locale::setDefault('en');
@@ -185,10 +185,10 @@ class NumberToLocalizedStringTransformerTest extends LocalizedTestCase
     /**
      * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
      */
-    public function testDecimalSeparatorMayNotBeCommaIfGroupingSeparatorIsComma_noGroupSep()
+    public function testDecimalSeparatorMayNotBeCommaIfGroupingSeparatorIsCommaWithNoGroupSep()
     {
-        if ($this->isLowerThanIcuVersion('4.5')) {
-            $this->markTestSkipped('Please upgrade ICU version to 4.5+');
+        if ($this->isLowerThanIcuVersion('4.7')) {
+            $this->markTestSkipped('Please upgrade ICU version to 4.7+');
         }
 
         \Locale::setDefault('en');
